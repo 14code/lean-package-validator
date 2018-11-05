@@ -72,8 +72,8 @@ script:
     fi
 
 before_deploy:
-  - curl -LSs https://box-project.github.io/box2/installer.php | php
-  - php -d phar.readonly=0 box.phar build
+  - curl -OL https://github.com/humbug/box/releases/download/3.1.3/box.phar
+  - php box.phar compile
   - composer lpv:application-phar-version-guard
 
 deploy:
